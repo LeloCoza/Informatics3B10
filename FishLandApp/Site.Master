@@ -47,8 +47,8 @@
 
                     <div id="two">
                         <ul>
-                            <li><a href="register.aspx">Register </a></li>
-                            <li><a href="~/Account/Login">Login </a></li>
+                            <li><a href="Register.aspx">Register </a></li>
+                            <li><a href="Login.aspx">Login </a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,8 +57,8 @@
             <div id="topnav">
                 <ul>
                     <li><a href="Default.aspx">HOME</a></li>
-                    <li><a href="menu.aspx">MENU</a></li>
-                    <li><a href="order.aspx">ORDER ONLINE</a></li>
+                    <li><a href="Menu.aspx">MENU</a></li>
+                    <li><a href="Order.aspx">ORDER ONLINE</a></li>
                     <li><a href="About.aspx">ABOUT US</a></li>
                     <li><a href="Contact.aspx">CONTACT US</a></li>
                 </ul>
