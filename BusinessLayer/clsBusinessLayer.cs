@@ -12,9 +12,9 @@ namespace BusinessLayer
         public clsDataLayer objDataLayer = new clsDataLayer();  //create a DataLayer object
         
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddActor(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
+        public void AddActor(string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
         {
-            objDataLayer.AddActorDB(actor_id, actor_name, actor_surname, actor_DOB, actor_cell, actor_email, actor_address);
+            objDataLayer.AddActorDB(actor_name, actor_surname, actor_DOB, actor_cell, actor_email, actor_address);
         }
 
         public void UpdateActor(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
