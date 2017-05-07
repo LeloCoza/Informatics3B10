@@ -13,12 +13,17 @@ namespace FishLandApp
         clsBusinessLayer objLogic;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            objLogic = new clsBusinessLayer();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            objLogic = new clsBusinessLayer();
 
+            objLogic.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text);
+
+            clear();
+            Response.Redirect("Register.aspx");
         }
         
         //clears all textboxes after data is submitted.
