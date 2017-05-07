@@ -1,0 +1,148 @@
+﻿#wrapper {
+    width:1100px; margin:0px auto; background-color:white;
+}
+
+#top {
+    background-color:black; width:100%; padding:20px 0px; overflow:hidden;
+    border-bottom:1px solid #808080;
+}
+
+#logo {
+    margin: 0 0 0 10px; float:left;
+}
+
+    #logo img {
+        width:180px; height:120px;
+    }
+
+#name {
+    float:left; margin:0 10px 0 0;
+}
+
+    #name p {
+        color:white; font-family:Georgia; font-size:40px; margin:4px 10px 4px 0px;
+    }
+
+    #name ul li {
+        list-style-type:none; color:aqua; padding:0px 20px;
+    }
+
+#social-media {
+    float:right; margin:0px 10px 0px 0px;
+}
+
+    #social-media p {
+        color:white; font-size:11px; margin:4px 10px 4px 35px;
+    }
+
+    #social-media img {
+        width:50px; height:50px;
+    }
+
+    #social-media ul li {
+        display:inline;
+    }
+
+
+
+#two ul li {
+    display:inline; padding:10px 10px;
+}
+
+    /*#two ul li a {
+        float:right; padding: 10px 20px;
+    }*/
+
+#topnav {
+    background-color:dimgray; clear:both;
+}
+
+    #topnav ul {
+        width:100%; float:left; margin:0px; background-color:dimgrey;
+        border-bottom:3px solid #cccccc;
+    }
+
+        #topnav ul li {
+            display:inline;
+        }
+
+            #topnav ul li a {
+                float:left; padding:10px 20px;
+            }
+
+    #topnav a:link {
+        color:white;
+    }
+
+    #topnav a:visited {
+        color:white;
+    }
+
+    #topnav a:active {
+        color:white;
+    }
+
+    #topnav a:hover {
+        color:white; background-color:darkred;
+    }
+
+    #topnav a:focus {
+        color:white;
+    }
+
+footer {
+    clear:both; background-color:black; padding:10px 0px;
+}
+
+    footer p {
+        text-align:center; color:white;
+    }
+
+#subbanner {
+    width:100%; background-color:#555555; padding:15px 0px; 
+		overflow:hidden;
+}
+
+    #subbanner h3 {
+        color:#ffffff; font-size:16px; font-weight:bold;
+			text-align:center; line-height:180%;
+    }
+
+#rightside {
+    padding:20px; margin-left:675px;
+}
+
+    #rightside h2 {
+        margin:20px 0px 10px 0px;
+    }
+
+    #rightside p {
+         margin:8px 0px; line-height:160%;
+    }
+
+    #rightside img {
+         width:150px; height:110px; padding:8px; 
+			border:1px #888888 solid; margin:8px;
+    }
+
+#content {
+    float:left; width:650px; padding:20px;
+}
+
+    #content h1 {
+        margin:0px 0px 20px 0px; font-size:32px;
+		    border-bottom:1px #777777 solid; padding: 20px 0px;
+    }
+
+    #content h2 {
+       margin:20px 0px 0px 0px; 
+    }
+
+    #content img {
+        width:250px; height:200px; padding:8px; 
+			border:1px #888888 solid; margin:8px;
+    }
+
+    #content p {
+        margin:16px 0px; line-height:160%;
+    }

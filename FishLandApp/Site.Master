@@ -14,72 +14,106 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <link href="Content/master.css" rel="stylesheet" type="text/css" media="screen" />
+
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
+        <div id="wrapper">
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+            <div id="top">
+                <div id="logo">
+                    <img src="images/logo9.png" />
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+
+                <div id="name">
+                    <p>FishLand</p>
+                    <ul>
+                        <li>home of well done fish!</li>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                </div>
+
+                <div id="social-media">
+                    <p>Connect With Us</p>
+                    <ul>
+                        <li><a href="http://www.facebook.com">
+                            <img src="images/facebookIkon.png"></a></li>
+                        <li><a href="http://www.youtube.com">
+                            <img src="images/youtubeIcon.png"></a></li>
+                        <li><a href="http://www.twitter.com">
+                            <img src="images/twitterIcon.png"></a></li>
+                    </ul>
+                    <p>Contact Us Today: 011 235 8597 </p>
+
+                    <div id="two">
+                        <ul>
+                            <li><a href="register.aspx">Register </a></li>
+                            <li><a href="~/Account/Login">Login </a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
+
+            <div id="topnav">
+                <ul>
+                    <li><a href="Default.aspx">HOME</a></li>
+                    <li><a href="menu.aspx">MENU</a></li>
+                    <li><a href="order.aspx">ORDER ONLINE</a></li>
+                    <li><a href="About.aspx">ABOUT US</a></li>
+                    <li><a href="Contact.aspx">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick"></asp:Timer>
+                    <asp:Image ID="Image1" Width="1100px" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+
+            <div id="subbanner">
+                <h3>So many different ways to leave you satisfied. Different makes, different tastes for different people. </h3>
+            </div>
+
+            <div id="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <div id="rightside">
+                    <h2>Drinks</h2>
+
+                    <img src="images/beverages4.png" />
+
+                    <p>
+                        Here are some beverages to go with your meals. Soft drinks and juice are available for purchase as well, 
+				    along with your meals.
+                    </p>
+
+                    <h2>Desserts </h2>
+
+                    <img src="images/dessert4.png" />
+
+                    <p>
+                        Our Chef makes some home-made desserts every now and then.
+                   Puddings, triffles, ice-cream and etc.
+                    </p>
+
+                    <h2>Today's Special </h2>
+
+                    <img src="images/meal2.png" />
+
+                    <p>Buy one Fish wrap, get one free for only R68.99. Drink included.</p>
+
+                </div>
+
+
+                <footer>
+                    <p>&copy; <%: DateTime.Now.Year %> FishLand Shop Website</p>
+                </footer>
+            </div>
+
         </div>
     </form>
 </body>
