@@ -16,18 +16,10 @@ namespace DataLayer
 
         public void InsertUpdateDeleteSQLString(string sqlstring)
         {
-            try
-            {
-
                 SqlConnection objsqlconn = new SqlConnection(conn);
                 objsqlconn.Open();
                 SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
                 objcmd.ExecuteNonQuery();
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e.Message);
-            }
         }
 
         public object ExecuteSqlString(string sqlstring)
