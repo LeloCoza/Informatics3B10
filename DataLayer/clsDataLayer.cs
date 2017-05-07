@@ -12,6 +12,7 @@ namespace DataLayer
 {
     public class clsDataLayer
     {
+        //calling the connection string (FishLandDBEntities) into the DataLayer
         private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();
 
         public void InsertUpdateDeleteSQLString(string sqlstring)
@@ -34,6 +35,7 @@ namespace DataLayer
             return ds;
         }
 
+        //methods to execute Insert/Update/Delete commands using SQLCOMMAND
         public void AddActorDB(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
         {
             DataSet ds = new DataSet();
@@ -55,6 +57,9 @@ namespace DataLayer
             InsertUpdateDeleteSQLString(sql);
         }
 
+
+        //this method uses SQLCOMMAND and DATASET to load records
+        //and pass them to the BusinessLayer
         public object RetrieveActorDB()
         {
             DataSet ds = new DataSet();
