@@ -69,7 +69,11 @@ namespace FishLandApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //so that the first time Default.aspx is loaded, an images appears. 
+            if (!IsPostBack)
+            {
+                SetImageUrl();
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -79,6 +83,12 @@ namespace FishLandApp
 
         //Tick event for the timer control
         protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            SetImageUrl();
+        }
+
+        //extracted method, from Timer1_Tick method
+        private void SetImageUrl()
         {
             Random _rand = new Random();
             int i = _rand.Next(1, 4);
