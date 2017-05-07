@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="FishLandApp.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <script type="text/javascript" src="Scripts/js/jquery.lightbox-0.5.min.js"></script>
     <link href="Content/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" media="screen" />
     
