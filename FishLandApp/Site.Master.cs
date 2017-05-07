@@ -76,6 +76,14 @@ namespace FishLandApp
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+
+        //Tick event for the timer control
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            Random _rand = new Random();
+            int i = _rand.Next(1, 4);
+            Image1.ImageUrl = "~/images/" + i.ToString() + ".png";
+        }
     }
 
 }
