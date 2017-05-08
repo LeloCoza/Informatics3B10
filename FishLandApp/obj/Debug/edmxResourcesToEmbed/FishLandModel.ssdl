@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="ActorID" />
     </Key>
-    <Property Name="ActorID" Type="int" Nullable="false" />
+    <Property Name="ActorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Cellphone" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -16,7 +16,7 @@
     <Key>
       <PropertyRef Name="ActorIdentityID" />
     </Key>
-    <Property Name="ActorIdentityID" Type="int" Nullable="false" />
+    <Property Name="ActorIdentityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ActorID" Type="int" Nullable="false" />
   </EntityType>
@@ -24,7 +24,7 @@
     <Key>
       <PropertyRef Name="AuthenticationID" />
     </Key>
-    <Property Name="AuthenticationID" Type="int" Nullable="false" />
+    <Property Name="AuthenticationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ConfirmPass" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -35,34 +35,34 @@
     <Key>
       <PropertyRef Name="CategoryID" />
     </Key>
-    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Oder">
     <Key>
       <PropertyRef Name="OderID" />
     </Key>
-    <Property Name="OderID" Type="int" Nullable="false" />
+    <Property Name="OderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Quantity" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="TotalAmount" Type="money" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="AuthenticationID" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="OderProduct">
+  <EntityType Name="OderDetails">
     <Key>
-      <PropertyRef Name="OderID" />
-      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="OderDetailsID" />
     </Key>
+    <Property Name="OderDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OderID" Type="int" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
     <Property Name="NumOfItems" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductID" />
     </Key>
-    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ProductDescript" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProductPrice" Type="money" Nullable="false" />
@@ -127,26 +127,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OderProduct_Oder">
+  <Association Name="FK_OderDetails_Oder">
     <End Role="Oder" Type="Self.Oder" Multiplicity="1" />
-    <End Role="OderProduct" Type="Self.OderProduct" Multiplicity="*" />
+    <End Role="OderDetails" Type="Self.OderDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Oder">
         <PropertyRef Name="OderID" />
       </Principal>
-      <Dependent Role="OderProduct">
+      <Dependent Role="OderDetails">
         <PropertyRef Name="OderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OderProduct_Product">
+  <Association Name="FK_OderDetails_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="OderProduct" Type="Self.OderProduct" Multiplicity="*" />
+    <End Role="OderDetails" Type="Self.OderDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="ProductID" />
       </Principal>
-      <Dependent Role="OderProduct">
+      <Dependent Role="OderDetails">
         <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
@@ -169,7 +169,7 @@
     <EntitySet Name="Authentication" EntityType="Self.Authentication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Oder" EntityType="Self.Oder" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="OderProduct" EntityType="Self.OderProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OderDetails" EntityType="Self.OderDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ActorIdentity_Actor" Association="Self.FK_ActorIdentity_Actor">
@@ -188,13 +188,13 @@
       <End Role="Authentication" EntitySet="Authentication" />
       <End Role="Oder" EntitySet="Oder" />
     </AssociationSet>
-    <AssociationSet Name="FK_OderProduct_Oder" Association="Self.FK_OderProduct_Oder">
+    <AssociationSet Name="FK_OderDetails_Oder" Association="Self.FK_OderDetails_Oder">
       <End Role="Oder" EntitySet="Oder" />
-      <End Role="OderProduct" EntitySet="OderProduct" />
+      <End Role="OderDetails" EntitySet="OderDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_OderProduct_Product" Association="Self.FK_OderProduct_Product">
+    <AssociationSet Name="FK_OderDetails_Product" Association="Self.FK_OderDetails_Product">
       <End Role="Product" EntitySet="Product" />
-      <End Role="OderProduct" EntitySet="OderProduct" />
+      <End Role="OderDetails" EntitySet="OderDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
       <End Role="Category" EntitySet="Category" />

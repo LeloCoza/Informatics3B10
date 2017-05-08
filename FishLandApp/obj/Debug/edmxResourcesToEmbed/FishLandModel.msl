@@ -48,18 +48,19 @@
         <MappingFragment StoreEntitySet="Oder">
           <ScalarProperty Name="OderID" ColumnName="OderID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="AuthenticationID" ColumnName="AuthenticationID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="OderProducts">
-      <EntityTypeMapping TypeName="FishLandDBModel.OderProduct">
-        <MappingFragment StoreEntitySet="OderProduct">
+    <EntitySetMapping Name="OderDetails">
+      <EntityTypeMapping TypeName="FishLandDBModel.OderDetail">
+        <MappingFragment StoreEntitySet="OderDetails">
+          <ScalarProperty Name="OderDetailsID" ColumnName="OderDetailsID" />
           <ScalarProperty Name="OderID" ColumnName="OderID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
           <ScalarProperty Name="NumOfItems" ColumnName="NumOfItems" />
         </MappingFragment>
       </EntityTypeMapping>
