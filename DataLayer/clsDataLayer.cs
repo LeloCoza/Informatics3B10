@@ -17,10 +17,13 @@ namespace DataLayer
 
         public void InsertUpdateDeleteSQLString(string sqlstring)
         {
+            
                 SqlConnection objsqlconn = new SqlConnection(conn);
                 objsqlconn.Open();
                 SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
                 objcmd.ExecuteNonQuery();
+            
+            
         }
 
         public object ExecuteSqlString(string sqlstring)

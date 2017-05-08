@@ -77,3 +77,7 @@ C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\bin\Microsoft.Owin.Secu
 C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\obj\Debug\FishLandApp.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\obj\Debug\FishLandApp.dll
 C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\obj\Debug\FishLandApp.pdb
+C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\bin\BusinessLayer.dll
+C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\bin\DataLayer.dll
+C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\bin\BusinessLayer.pdb
+C:\Users\User\Desktop\Repository\FishLandApp\FishLandApp\bin\DataLayer.pdb

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FishLandDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actor">
+    <Key>
+      <PropertyRef Name="ActorID" />
+    </Key>
+    <Property Name="ActorID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cellphone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActorIdentity">
+    <Key>
+      <PropertyRef Name="ActorIdentityID" />
+    </Key>
+    <Property Name="ActorIdentityID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ActorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Authentication">
+    <Key>
+      <PropertyRef Name="AuthenticationID" />
+    </Key>
+    <Property Name="AuthenticationID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConfirmPass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ActorID" Type="int" Nullable="false" />
+    <Property Name="ActorIdentityID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oder">
+    <Key>
+      <PropertyRef Name="OderID" />
+    </Key>
+    <Property Name="OderID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TotalAmount" Type="money" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="AuthenticationID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OderProduct">
+    <Key>
+      <PropertyRef Name="OderID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="OderID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="NumOfItems" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductDescript" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductPrice" Type="money" Nullable="false" />
+    <Property Name="ProductPicture" Type="varbinary(max)" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_ActorIdentity_Actor">
+    <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
+    <End Role="ActorIdentity" Type="Self.ActorIdentity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="ActorID" />
+      </Principal>
+      <Dependent Role="ActorIdentity">
+        <PropertyRef Name="ActorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Authentication_Actor">
+    <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
+    <End Role="Authentication" Type="Self.Authentication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="ActorID" />
+      </Principal>
+      <Dependent Role="Authentication">
+        <PropertyRef Name="ActorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Authentication_ActorIdentity">
+    <End Role="ActorIdentity" Type="Self.ActorIdentity" Multiplicity="1" />
+    <End Role="Authentication" Type="Self.Authentication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActorIdentity">
+        <PropertyRef Name="ActorIdentityID" />
+      </Principal>
+      <Dependent Role="Authentication">
+        <PropertyRef Name="ActorIdentityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oder_Authentication">
+    <End Role="Authentication" Type="Self.Authentication" Multiplicity="1" />
+    <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authentication">
+        <PropertyRef Name="AuthenticationID" />
+      </Principal>
+      <Dependent Role="Oder">
+        <PropertyRef Name="AuthenticationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OderProduct_Oder">
+    <End Role="Oder" Type="Self.Oder" Multiplicity="1" />
+    <End Role="OderProduct" Type="Self.OderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oder">
+        <PropertyRef Name="OderID" />
+      </Principal>
+      <Dependent Role="OderProduct">
+        <PropertyRef Name="OderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OderProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="OderProduct" Type="Self.OderProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OderProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FishLandDBModelStoreContainer">
+    <EntitySet Name="Actor" EntityType="Self.Actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActorIdentity" EntityType="Self.ActorIdentity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Authentication" EntityType="Self.Authentication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oder" EntityType="Self.Oder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OderProduct" EntityType="Self.OderProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ActorIdentity_Actor" Association="Self.FK_ActorIdentity_Actor">
+      <End Role="Actor" EntitySet="Actor" />
+      <End Role="ActorIdentity" EntitySet="ActorIdentity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Authentication_Actor" Association="Self.FK_Authentication_Actor">
+      <End Role="Actor" EntitySet="Actor" />
+      <End Role="Authentication" EntitySet="Authentication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Authentication_ActorIdentity" Association="Self.FK_Authentication_ActorIdentity">
+      <End Role="ActorIdentity" EntitySet="ActorIdentity" />
+      <End Role="Authentication" EntitySet="Authentication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oder_Authentication" Association="Self.FK_Oder_Authentication">
+      <End Role="Authentication" EntitySet="Authentication" />
+      <End Role="Oder" EntitySet="Oder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OderProduct_Oder" Association="Self.FK_OderProduct_Oder">
+      <End Role="Oder" EntitySet="Oder" />
+      <End Role="OderProduct" EntitySet="OderProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OderProduct_Product" Association="Self.FK_OderProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OderProduct" EntitySet="OderProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
