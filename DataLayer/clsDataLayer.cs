@@ -18,8 +18,8 @@ namespace DataLayer
         public void InsertUpdateDeleteSQLString(string sqlstring)
         {
             
-                SqlConnection objsqlconn = new SqlConnection(conn);
-                objsqlconn.Open();
+                SqlConnection objsqlconn = new SqlConnection(conn);      //create connection to the database
+                objsqlconn.Open();      //open connection
                 SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
                 objcmd.ExecuteNonQuery();
             
