@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="LTActor.cs" />
     <Compile Include="LTActorIdentity.cs" />
+    <Compile Include="LTAuthentication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
