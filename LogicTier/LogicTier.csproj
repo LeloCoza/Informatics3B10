@@ -45,6 +45,7 @@
     <Compile Include="LTAuthentication.cs" />
     <Compile Include="LTOder.cs" />
     <Compile Include="LTOderDetails.cs" />
+    <Compile Include="LTProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
