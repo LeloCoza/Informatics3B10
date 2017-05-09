@@ -1,4 +1,5 @@
 C:\Users\User\Desktop\Repository\FishLandApp\DatabaseLayer\bin\Debug\DatabaseLayer.dll
 C:\Users\User\Desktop\Repository\FishLandApp\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
+C:\Users\User\Desktop\Repository\FishLandApp\DatabaseLayer\obj\Debug\DatabaseLayer.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\Repository\FishLandApp\DatabaseLayer\obj\Debug\DatabaseLayer.dll
 C:\Users\User\Desktop\Repository\FishLandApp\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
