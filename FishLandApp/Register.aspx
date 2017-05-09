@@ -25,11 +25,11 @@
         <br /><br />
         <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
         <br />
-        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
         <br /><br />
         <asp:Label ID="lblCPassword" runat="server" Text="Confirm Password"></asp:Label>
         <br />
-        <asp:TextBox ID="txtCPassword" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtCPassword" runat="server" Text="Confirm Password" TextMode="Password"></asp:TextBox>
         <br /><br />
         <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
         <br />
@@ -41,6 +41,6 @@
         <br /><br />
         <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
         <br /><br />
-         <asp:Label ID="Label1" runat="server" Text="You have been registered!" Visible="false" ForeColor="Black"></asp:Label>
+         <asp:Label ID="lblRegister" runat="server" Text="You have been registered!" Visible="false" ForeColor="Black"></asp:Label>
     </div>
 </asp:Content>

@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace DataLayer
 {
-    public class clsDataLayer
+    public class DLActor
     {
         //calling the connection string (FishLandDBEntities) into the DataLayer
         private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();

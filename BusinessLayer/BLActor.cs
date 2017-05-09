@@ -7,9 +7,9 @@ using DataLayer; //import DataLayer namespace
 
 namespace BusinessLayer
 {
-    public class clsBusinessLayer
+    public class BLActor
     {
-        public clsDataLayer objDataLayer = new clsDataLayer();  //create a DataLayer object
+        public DLActor objDataLayer = new DLActor();  //create a DataLayer object
         
         //create, select, update, delete functions to update from presentation layer to database layer
         public void AddActor(string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
