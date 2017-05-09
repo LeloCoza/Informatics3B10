@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DLActor.cs" />
-    <Compile Include="DLActorIdentity.cs" />
     <Compile Include="DLAuthentication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
