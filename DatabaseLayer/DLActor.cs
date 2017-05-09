@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace DatabaseLayer
 {
-    public class DL
+    public class DLActor
     {
     }
 }
