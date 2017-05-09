@@ -22,10 +22,12 @@ namespace FishLandApp
             objLogic = new LTActor();
 
             objLogic.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text);
-           // Response.Write("You have been registered!");
+
+            lblRegister.Visible = true;
+            // Response.Write("You have been registered!");
             clear();
             
-            Response.Redirect("Register.aspx");
+            //Response.Redirect("Register.aspx");
             
         }
         

@@ -63,7 +63,7 @@ namespace DatabaseLayer
 
         //this method uses SQLCOMMAND and DATASET to load records
         //and pass them to the BusinessLayer
-        public object RetrieveActorDB()
+        public object RetrieveActorIdDB()
         {
             DataSet ds = new DataSet();
             string sql = "Select * from ActorIdentity order by ActorIdentityID";
