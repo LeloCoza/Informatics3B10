@@ -1,7 +1,0 @@
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\bin\Debug\BusinessLayer.dll
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\bin\Debug\BusinessLayer.pdb
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\bin\Debug\DataLayer.dll
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\bin\Debug\DataLayer.pdb
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\obj\Debug\BusinessLayer.dll
-C:\Users\User\Desktop\Repository\FishLandApp\BusinessLayer\obj\Debug\BusinessLayer.pdb

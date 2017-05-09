@@ -1,7 +1,1 @@
-C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\bin\Debug\LogicTier.dll
-C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\bin\Debug\LogicTier.pdb
-C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\bin\Debug\DatabaseLayer.dll
-C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\bin\Debug\DatabaseLayer.pdb
 C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\obj\Debug\LogicTier.csprojResolveAssemblyReference.cache
-C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\obj\Debug\LogicTier.dll
-C:\Users\User\Desktop\Repository\FishLandApp\LogicTier\obj\Debug\LogicTier.pdb

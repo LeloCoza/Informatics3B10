@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatabaseLayer;
 
-using DataLayer; 
-
-namespace BusinessLayer
+namespace LogicTier
 {
-    public class BLActorIdentity
+    public class LTActorIdentity
     {
-        public BLActorIdentity objDataLayer = new BLActorIdentity();  //create a DataLayer object
+        public LTActorIdentity objDataLayer = new LTActorIdentity();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
         public void AddActorId(string descript)
