@@ -44,6 +44,7 @@
     <Compile Include="LTActor_Identity.cs" />
     <Compile Include="LTAuthentication.cs" />
     <Compile Include="LTOder.cs" />
+    <Compile Include="LTOderDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
