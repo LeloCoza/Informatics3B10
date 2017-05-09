@@ -10,7 +10,7 @@ namespace LogicTier
 {
     public class LTActor_Identity
     {
-        public LTActor_Identity objDataLayer = new LTActor_Identity();  //create a DataLayer object
+        public DLActor_Identity objDataLayer = new DLActor_Identity();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
         public void AddActorId(string descript)
