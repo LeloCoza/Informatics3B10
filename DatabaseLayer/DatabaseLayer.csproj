@@ -44,6 +44,7 @@
     <Compile Include="DLActor.cs" />
     <Compile Include="DLActor_Identity.cs" />
     <Compile Include="DLAuthentication.cs" />
+    <Compile Include="DLCategory.cs" />
     <Compile Include="DLOder.cs" />
     <Compile Include="DLOderDetails.cs" />
     <Compile Include="DLProduct.cs" />
