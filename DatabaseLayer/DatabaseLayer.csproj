@@ -46,6 +46,7 @@
     <Compile Include="DLAuthentication.cs" />
     <Compile Include="DLOder.cs" />
     <Compile Include="DLOderDetails.cs" />
+    <Compile Include="DLProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
