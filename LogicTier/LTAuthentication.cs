@@ -8,7 +8,7 @@ using DatabaseLayer;    //import DatabaseLayer
 
 namespace LogicTier
 {
-    class LTAuthentication
+    public class LTAuthentication
     {
         public DLAuthentication objDataLayer = new DLAuthentication();  //create a DataLayer object
 
