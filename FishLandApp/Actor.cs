@@ -17,7 +17,6 @@ namespace FishLandApp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Actor()
         {
-            this.ActorIdentities = new HashSet<ActorIdentity>();
             this.Authentications = new HashSet<Authentication>();
         }
     
@@ -28,9 +27,9 @@ namespace FishLandApp
         public string Email { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
+        public int ActorIdentityID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ActorIdentity> ActorIdentities { get; set; }
+        public virtual ActorIdentity ActorIdentity { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Authentication> Authentications { get; set; }
     }

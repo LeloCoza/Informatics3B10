@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="97517b86a9214c49adfc64215d823cdb" Name="Diagram1">
-        <EntityTypeShape EntityType="FishLandDBModel.Actor" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="FishLandDBModel.ActorIdentity" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="FishLandDBModel.Authentication" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="FishLandDBModel.Category" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FishLandDBModel.Oder" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FishLandDBModel.OderDetail" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FishLandDBModel.Product" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+      <Diagram DiagramId="42c2a4d5ad7845feb43cd2f9131e069a" Name="Diagram1">
+        <EntityTypeShape EntityType="FishLandDBModel.Actor" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishLandDBModel.ActorIdentity" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishLandDBModel.Authentication" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishLandDBModel.Category" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishLandDBModel.Oder" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishLandDBModel.OderDetail" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FishLandDBModel.Product" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FishLandDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="FishLandDBModel.FK_ActorIdentity_Actor" ManuallyRouted="false" />
+        <AssociationConnector Association="FishLandDBModel.FK_Actor_ActorIdentity" ManuallyRouted="false" />
         <AssociationConnector Association="FishLandDBModel.FK_Authentication_Actor" ManuallyRouted="false" />
         <AssociationConnector Association="FishLandDBModel.FK_Authentication_ActorIdentity" ManuallyRouted="false" />
         <AssociationConnector Association="FishLandDBModel.FK_Oder_Authentication" ManuallyRouted="false" />

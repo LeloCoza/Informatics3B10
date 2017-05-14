@@ -17,14 +17,15 @@ namespace FishLandApp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ActorIdentity()
         {
+            this.Actors = new HashSet<Actor>();
             this.Authentications = new HashSet<Authentication>();
         }
     
         public int ActorIdentityID { get; set; }
         public string Description { get; set; }
-        public int ActorID { get; set; }
     
-        public virtual Actor Actor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Actor> Actors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Authentication> Authentications { get; set; }
     }
