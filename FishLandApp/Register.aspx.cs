@@ -11,20 +11,35 @@ namespace FishLandApp
 {
     public partial class Register : System.Web.UI.Page
     {
-        LTActor objLogic;
-       // LTAuthentication objLogic2;
+        //create objects for the three classes
+        LTActor_Identity objAI;
+        LTActor objA;
+        LTAuthentication objAu;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            objLogic = new LTActor();
+            objAI = new LTActor_Identity();
+            objA = new LTActor();
+            objAu = new LTAuthentication();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            objLogic = new LTActor();
-           // objLogic2 = new LTAuthentication();
+            //instantiate objects for the three classes 
+            objAI = new LTActor_Identity();
+            objA = new LTActor();
+            objAu = new LTAuthentication();
+
+
+            //describes the below registra as a customer by default
+            objAI.AddActorId("Customer");
 
             //creates a user/actor record in table Actor of database FishLandDB
-           // objLogic.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text);
+            objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text);
+
+            //stores Authentication values in Authentication table in the database when btnRegister is clicked.
+            objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
+
 
             lblRegister.Visible = true;     //displays message when user/actor has registered successfully.
             clear();

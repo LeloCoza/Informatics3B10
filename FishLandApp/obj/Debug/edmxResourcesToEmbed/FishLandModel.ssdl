@@ -11,6 +11,7 @@
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ActorIdentityID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ActorIdentity">
     <Key>
@@ -18,7 +19,6 @@
     </Key>
     <Property Name="ActorIdentityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ActorID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Authentication">
     <Key>
@@ -51,6 +51,8 @@
   <EntityType Name="OderDetails">
     <Key>
       <PropertyRef Name="OderDetailsID" />
+      <PropertyRef Name="OderID" />
+      <PropertyRef Name="ProductID" />
     </Key>
     <Property Name="OderDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OderID" Type="int" Nullable="false" />
@@ -79,15 +81,15 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK_ActorIdentity_Actor">
-    <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
-    <End Role="ActorIdentity" Type="Self.ActorIdentity" Multiplicity="*" />
+  <Association Name="FK_Actor_ActorIdentity">
+    <End Role="ActorIdentity" Type="Self.ActorIdentity" Multiplicity="1" />
+    <End Role="Actor" Type="Self.Actor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Actor">
-        <PropertyRef Name="ActorID" />
+      <Principal Role="ActorIdentity">
+        <PropertyRef Name="ActorIdentityID" />
       </Principal>
-      <Dependent Role="ActorIdentity">
-        <PropertyRef Name="ActorID" />
+      <Dependent Role="Actor">
+        <PropertyRef Name="ActorIdentityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -172,9 +174,9 @@
     <EntitySet Name="OderDetails" EntityType="Self.OderDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_ActorIdentity_Actor" Association="Self.FK_ActorIdentity_Actor">
-      <End Role="Actor" EntitySet="Actor" />
+    <AssociationSet Name="FK_Actor_ActorIdentity" Association="Self.FK_Actor_ActorIdentity">
       <End Role="ActorIdentity" EntitySet="ActorIdentity" />
+      <End Role="Actor" EntitySet="Actor" />
     </AssociationSet>
     <AssociationSet Name="FK_Authentication_Actor" Association="Self.FK_Authentication_Actor">
       <End Role="Actor" EntitySet="Actor" />

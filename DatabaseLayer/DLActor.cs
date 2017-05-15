@@ -39,17 +39,17 @@ namespace DatabaseLayer
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddActorDB(string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
+        public void AddActorDB(string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address, int actorid_id)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Actor (Name, Surname, DateOfBirth, Cellphone, Email, Address) VALUES ('" + actor_name + "','" + actor_surname + "','" + actor_DOB + "','" + actor_cell + "','" + actor_email + "','" + actor_address + "')";
+            string sql = "INSERT into Actor (Name, Surname, DateOfBirth, Cellphone, Email, Address) VALUES ('" + actor_name + "','" + actor_surname + "','" + actor_DOB + "','" + actor_cell + "','" + actor_email + "','" + actor_address + "','" + actorid_id + "')";
             InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateActorDB(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address)
+        public void UpdateActorDB(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address, int actorid_id)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Actor set Name='" + actor_name + "',Surname='" + actor_surname + "',DateOfBirth='" + actor_DOB + "'Cellphone='" + actor_cell + "',Email='" + actor_email + "',Address='" + actor_address + "' Where ActorID='" + actor_id + "' ";
+            string sql = "Update Actor set Name='" + actor_name + "',Surname='" + actor_surname + "',DateOfBirth='" + actor_DOB + "'Cellphone='" + actor_cell + "',Email='" + actor_email + "',Address='" + actor_address + "',ActorIdentityID='" + actorid_id + "' Where ActorID='" + actor_id + "' ";
             InsertUpdateDeleteSQLString(sql);
         }
 
