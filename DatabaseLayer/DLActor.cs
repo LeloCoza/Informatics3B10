@@ -70,5 +70,14 @@ namespace DatabaseLayer
             ds = (DataSet)ExecuteSqlString(sql);
             return ds;
         }
+
+        //this function returns a foreign key of this class
+        public object GetForeignKeyDB()
+        {
+            DataSet ds = new DataSet();
+            string sql = "Select ActorIdentityID from ActorIdentity";
+            ds = (DataSet)ExecuteSqlString(sql);
+            return ds;
+        }
     }
 }

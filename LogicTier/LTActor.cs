@@ -8,7 +8,7 @@ using DatabaseLayer;    //import DatabaseLayer
 
 namespace LogicTier
 {
-    public class LTActor
+    public class LTActor 
     {
         public DLActor objDataLayer = new DLActor();  //create a DataLayer object
 
@@ -31,6 +31,11 @@ namespace LogicTier
         public object RetrieveActor()
         {
             return objDataLayer.RetrieveActorDB();
+        }
+
+        public object GetForeignKey()
+        {
+            return objDataLayer.GetForeignKeyDB();
         }
     }
 }

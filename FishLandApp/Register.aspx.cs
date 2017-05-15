@@ -33,9 +33,11 @@ namespace FishLandApp
 
             //describes the below registra as a customer by default
             objAI.AddActorId("Customer");
-
+            object a = objA.GetForeignKey();
+            int i = (int)Convert.ChangeType(a, typeof(int));
+            
             //creates a user/actor record in table Actor of database FishLandDB
-            objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text);
+            objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text, i);
 
             //stores Authentication values in Authentication table in the database when btnRegister is clicked.
             objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
