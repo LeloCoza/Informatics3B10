@@ -12,14 +12,14 @@ namespace LogicTier
         public DLOderDetails objDataLayer = new DLOderDetails();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddOderDetails(int oderDet_id, int size, int num_of_items)
+        public void AddOderDetails(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
         {
-            objDataLayer.AddOderDetailsDB(oderDet_id, size, num_of_items);
+            objDataLayer.AddOderDetailsDB(oderDet_id, size, num_of_items, orderid, prodid);
         }
 
-        public void UpdateOderDetails(int oderDet_id, int size, int num_of_items)
+        public void UpdateOderDetails(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
         {
-            objDataLayer.UpdateOderDetailsDB(oderDet_id, size, num_of_items);
+            objDataLayer.UpdateOderDetailsDB(oderDet_id, size, num_of_items, orderid, prodid);
         }
 
         public void DeleteOderDetails(int oderDet_id)

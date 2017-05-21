@@ -72,12 +72,9 @@ namespace DatabaseLayer
         }
 
         //this function returns a foreign key of this class
-        public object GetForeignKeyDB()
+        public int GetForeignKeyDB()
         {
-            DataSet ds = new DataSet();
-            string sql = "Select ActorIdentityID from ActorIdentity";
-            ds = (DataSet)ExecuteSqlString(sql);
-            return ds;
+            SqlCommand objcmd = new SqlCommand("Select count(*) from Actor Where Description='" + Customer + "'");
         }
     }
 }

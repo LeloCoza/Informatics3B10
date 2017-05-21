@@ -12,14 +12,14 @@ namespace LogicTier
         public DLProduct objDataLayer = new DLProduct();  //create a DatabaseLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddProduct(string prod_name, string prod_descript, string prod_price, string prod_pic)
+        public void AddProduct(string prod_name, string prod_descript, string prod_price, string prod_pic, int catid)
         {
-            objDataLayer.AddProductDB(prod_name, prod_descript, prod_price, prod_pic);
+            objDataLayer.AddProductDB(prod_name, prod_descript, prod_price, prod_pic, catid);
         }
 
-        public void UpdateProduct(int prod_id, string prod_name, string prod_descript, string prod_price, string prod_pic)
+        public void UpdateProduct(int prod_id, string prod_name, string prod_descript, string prod_price, string prod_pic, int catid)
         {
-            objDataLayer.UpdateProductDB(prod_id, prod_name, prod_descript, prod_price, prod_pic);
+            objDataLayer.UpdateProductDB(prod_id, prod_name, prod_descript, prod_price, prod_pic, catid);
         }
 
         public void DeleteProduct(int prod_id)

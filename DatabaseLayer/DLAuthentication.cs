@@ -39,17 +39,17 @@ namespace DatabaseLayer
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddAuthenticationDB(string uname, string password, string cpassword)
+        public void AddAuthenticationDB(string uname, string password, string cpassword, int actor_id, int actorid_id)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Authentication (Username, Password, ConfirmPass) VALUES ('" + uname + "','" + password + "','" + cpassword + "')";
+            string sql = "INSERT into Authentication (Username, Password, ConfirmPass, ActorID, ActorIdentity) VALUES ('" + uname + "','" + password + "','" + cpassword + "','" + actor_id + "','"  + actorid_id +  "')";
             InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateAuthenticationDB(int authentication_id, string uname, string password, string cpassword)
+        public void UpdateAuthenticationDB(int authentication_id, string uname, string password, string cpassword, int actor_id, int actorid_id)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Authentication set Username='" + uname + "',Password='" + password + "',ConfirmPass='" + cpassword + "' ";
+            string sql = "Update Authentication set Username='" + uname + "',Password='" + password + "',ConfirmPass='" + cpassword + "',ActorID'" + actor_id + "',ActorIdentityID'" + actorid_id + "' ";
             InsertUpdateDeleteSQLString(sql);
         }
 
@@ -69,6 +69,14 @@ namespace DatabaseLayer
             string sql = "Select * from Authentication order by AuthenticationID";
             ds = (DataSet)ExecuteSqlString(sql);
             return ds;
+        }
+
+        //getting the userType
+        public string userTyp(string user, string passw, string cpassw)
+        {
+            SqlCommand objcmd = new SqlCommand("Select Username from Authentication Where Username='" + user + "' Password='" + passw + "' And CPassword='" + cpassw + "')");
+            string s = objcmd.ExecuteScalar().ToString();
+            return s;
         }
     }
 }

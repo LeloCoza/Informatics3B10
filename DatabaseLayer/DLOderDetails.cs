@@ -39,17 +39,17 @@ namespace DatabaseLayer
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddOderDetailsDB(int oderDet_id, int size, int num_of_items)
+        public void AddOderDetailsDB(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into OderDetails (Size, NumOfItems) VALUES ('" + size + "','" + num_of_items + "')";
+            string sql = "INSERT into OderDetails (Size, NumOfItems, OderID, ProductID) VALUES ('" + size + "','" + num_of_items + "','" + orderid + "','" + prodid + "')";
             InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateOderDetailsDB(int oderDet_id, int size, int num_of_items)
+        public void UpdateOderDetailsDB(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
         {
             DataSet ds = new DataSet();
-            string sql = "Update OderDetails set Size='" + size + "',NumOfItems='" + num_of_items + "' Where OderDetailsID='" + oderDet_id + "' ";
+            string sql = "Update OderDetails set Size='" + size + "',NumOfItems='" + num_of_items + "',OderID='" + orderid + "',ProductID='" + prodid + "' Where OderDetailsID='" + oderDet_id + "' ";
             InsertUpdateDeleteSQLString(sql);
         }
 

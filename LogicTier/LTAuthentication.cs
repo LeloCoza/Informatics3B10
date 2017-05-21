@@ -13,14 +13,14 @@ namespace LogicTier
         public DLAuthentication objDataLayer = new DLAuthentication();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddAuthentication(string uname, string password, string cpassword)
+        public void AddAuthentication(string uname, string password, string cpassword, int actor_id, int actorid__id)
         {
-            objDataLayer.AddAuthenticationDB(uname, password, cpassword);
+            objDataLayer.AddAuthenticationDB(uname, password, cpassword, actor_id, actorid__id);
         }
 
-        public void UpdateAuthentication(int authentication_id, string uname, string password, string cpassword)
+        public void UpdateAuthentication(int authentication_id, string uname, string password, string cpassword, int actor_id, int actorid__id)
         {
-            objDataLayer.UpdateAuthenticationDB(authentication_id, uname, password, cpassword);
+            objDataLayer.UpdateAuthenticationDB(authentication_id, uname, password, cpassword, actor_id, actorid__id);
         }
 
         public void DeleteAuthentication(int authentication_id)
