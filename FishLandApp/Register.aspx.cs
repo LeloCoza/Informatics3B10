@@ -15,7 +15,7 @@ namespace FishLandApp
         LTActor_Identity objAI;
         LTActor objA;
         LTAuthentication objAu;
-        private const int DefaultUserTypeId = 1;
+        private const int DefaultActorIdentityId = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
