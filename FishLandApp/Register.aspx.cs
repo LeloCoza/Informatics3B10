@@ -15,6 +15,7 @@ namespace FishLandApp
         LTActor_Identity objAI;
         LTActor objA;
         LTAuthentication objAu;
+        private const int DefaultUserTypeId = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,15 +33,16 @@ namespace FishLandApp
 
 
             //describes the below registra as a customer by default
-            objAI.AddActorId("Customer");
+            //objAI.AddActorId("Customer");x
+
             object a = objA.GetForeignKey();
             int i = (int)Convert.ChangeType(a, typeof(int));
             
             //creates a user/actor record in table Actor of database FishLandDB
-            objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text, i);
+            objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text, objAI.);
 
             //stores Authentication values in Authentication table in the database when btnRegister is clicked.
-            objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
+            //objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
 
 
             lblRegister.Visible = true;     //displays message when user/actor has registered successfully.

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Configuration;     //import data references
+﻿using EntityLayer;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -12,30 +6,10 @@ namespace DatabaseLayer
 {
     public class DLActor
     {
-        //calling the connection string (FishLandDBEntities) into the DataLayer
-        private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();
-
-        public void InsertUpdateDeleteSQLString(string sqlstring)
+        public DB db;
+        public DLActor()
         {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);      //create connection to the database
-            objsqlconn.Open();      //open connection
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            objcmd.ExecuteNonQuery();
-
-
-        }
-
-        public object ExecuteSqlString(string sqlstring)
-        {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);
-            objsqlconn.Open();
-            DataSet ds = new DataSet();
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            SqlDataAdapter objAdp = new SqlDataAdapter(objcmd);
-            objAdp.Fill(ds);
-            return ds;
+            db = new DB();
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
@@ -43,21 +17,28 @@ namespace DatabaseLayer
         {
             DataSet ds = new DataSet();
             string sql = "INSERT into Actor (Name, Surname, DateOfBirth, Cellphone, Email, Address) VALUES ('" + actor_name + "','" + actor_surname + "','" + actor_DOB + "','" + actor_cell + "','" + actor_email + "','" + actor_address + "','" + actorid_id + "')";
-            InsertUpdateDeleteSQLString(sql);
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
         public void UpdateActorDB(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address, int actorid_id)
         {
             DataSet ds = new DataSet();
             string sql = "Update Actor set Name='" + actor_name + "',Surname='" + actor_surname + "',DateOfBirth='" + actor_DOB + "'Cellphone='" + actor_cell + "',Email='" + actor_email + "',Address='" + actor_address + "',ActorIdentityID='" + actorid_id + "' Where ActorID='" + actor_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            db.InsertUpdateDeleteSQLString(sql);
+        }
+
+        public void UpdateActorDB(Actor actor)
+        {
+            DataSet ds = new DataSet();
+            string sql = "Update Actor set Name='" + actor.actor_name + "',Surname='" + actor.actor_surname + "',DateOfBirth='" + actor.actor_DOB + "'Cellphone='" + actor.actor_cell + "',Email='" + actor.actor_email + "',Address='" + actor.actor_address + "',ActorIdentityID='" + actor.actorid_id + "' Where ActorID='" + actor.actor_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
         public void DeleteActorDB(int actor_id)
         {
             DataSet ds = new DataSet();
             string sql = "Delete from Actor Where ActorID='" + actor_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -65,9 +46,8 @@ namespace DatabaseLayer
         //and pass them to the BusinessLayer
         public object RetrieveActorDB()
         {
-            DataSet ds = new DataSet();
             string sql = "Select * from Actor order by ActorID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            DataSet ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }
 
