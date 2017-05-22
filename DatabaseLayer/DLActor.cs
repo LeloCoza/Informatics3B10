@@ -20,24 +20,24 @@ namespace DatabaseLayer
             db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateActorDB(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address, int actorid_id)
+        /*public void UpdateActorDB(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address, int actorid_id)
         {
             DataSet ds = new DataSet();
             string sql = "Update Actor set Name='" + actor_name + "',Surname='" + actor_surname + "',DateOfBirth='" + actor_DOB + "'Cellphone='" + actor_cell + "',Email='" + actor_email + "',Address='" + actor_address + "',ActorIdentityID='" + actorid_id + "' Where ActorID='" + actor_id + "' ";
             db.InsertUpdateDeleteSQLString(sql);
-        }
+        }*/
 
         public void UpdateActorDB(Actor actor)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Actor set Name='" + actor.actor_name + "',Surname='" + actor.actor_surname + "',DateOfBirth='" + actor.actor_DOB + "'Cellphone='" + actor.actor_cell + "',Email='" + actor.actor_email + "',Address='" + actor.actor_address + "',ActorIdentityID='" + actor.actorid_id + "' Where ActorID='" + actor.actor_id + "' ";
+            string sql = "Update Actor set Name='" + actor.actor_name + "',Surname='" + actor.actor_surname + "',DateOfBirth='" + actor.actor_DOB + "',Cellphone='" + actor.actor_cell + "',Email='" + actor.actor_email + "',Address='" + actor.actor_address + "',ActorIdentityID='" + actor.actorid_id + "' Where ActorID='" + actor.actor_id + "' ";
             db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteActorDB(int actor_id)
+        public void DeleteActorDB(Actor actor)
         {
             DataSet ds = new DataSet();
-            string sql = "Delete from Actor Where ActorID='" + actor_id + "' ";
+            string sql = "Delete from Actor Where ActorID='" + actor.actor_id + "' ";
             db.InsertUpdateDeleteSQLString(sql);
         }
 
@@ -51,10 +51,5 @@ namespace DatabaseLayer
             return ds;
         }
 
-        //this function returns a foreign key of this class
-        public int GetForeignKeyDB()
-        {
-            SqlCommand objcmd = new SqlCommand("Select count(*) from Actor Where Description='" + Customer + "'");
-        }
     }
 }
