@@ -15,6 +15,6 @@ namespace EntityLayer
         public string actor_cell { get; set; }
         public string actor_email { get; set; }
         public string actor_address { get; set; }
-        //public int actorid_id { get; set; }
+        public int actorid_id { get; set; }
     }
 }

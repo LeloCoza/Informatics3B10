@@ -26,16 +26,7 @@ namespace DatabaseLayer
             db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void AddActorIdDB(string description)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateActorIdDB(int actorid_id, string description)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void UpdateActorIdDB(Actor_Identity actor_identity)
         {
             DataSet ds = new DataSet();
@@ -43,11 +34,7 @@ namespace DatabaseLayer
             db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteActorIdDB(int actorid_id)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void DeleteActorIdDB(Actor_Identity actor_identity)
         {
             DataSet ds = new DataSet();

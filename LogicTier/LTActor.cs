@@ -16,17 +16,17 @@ namespace LogicTier
         //create, select, update, delete functions to update from presentation layer to database layer
         public void AddActor(Actor actor)
         {
-            objDataLayer.AddActorDB(actor.actor_name, actor.actor_surname, actor.actor_DOB, actor.actor_cell, actor.actor_email, actor.actor_address);
+            objDataLayer.AddActorDB(actor);
         }
 
-        public void UpdateActor(int actor_id, string actor_name, string actor_surname, string actor_DOB, string actor_cell, string actor_email, string actor_address, int actorid_id)
+        public void UpdateActor(Actor actor)
         {
-            objDataLayer.UpdateActorDB(actor_id, actor_name, actor_surname, actor_DOB, actor_cell, actor_email, actor_address, actorid_id);
+            objDataLayer.UpdateActorDB(actor);
         }
 
-        public void DeleteActor(int actor_id)
+        public void DeleteActor(Actor actor)
         {
-            objDataLayer.DeleteActorDB(actor_id);
+            objDataLayer.DeleteActorDB(actor);
         }
 
         public object RetrieveActor()
@@ -34,9 +34,5 @@ namespace LogicTier
             return objDataLayer.RetrieveActorDB();
         }
 
-        public object GetForeignKey()
-        {
-            return objDataLayer.GetForeignKeyDB();
-        }
     }
 }
