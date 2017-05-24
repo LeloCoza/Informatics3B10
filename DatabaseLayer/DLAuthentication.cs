@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityLayer;
+using EntityLayer;      //import EntityLayer
 using System.Configuration;     //import data references
 using System.Data;
 using System.Data.SqlClient;
@@ -12,26 +12,34 @@ namespace DatabaseLayer
 {
     public class DLAuthentication
     {
+        public DB db;
+        public DLAuthentication()
+        {
+            //instantiate DB object for connection to the database
+            //in the DLAuthentication class
+            db = new DB();      
+        }
+
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddAuthenticationDB(string uname, string password, string cpassword, int actor_id, int actorid_id)
+        public void AddAuthenticationDB(Authentication auth)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Authentication (Username, Password, ConfirmPass, ActorID, ActorIdentity) VALUES ('" + uname + "','" + password + "','" + cpassword + "','" + actor_id + "','"  + actorid_id +  "')";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "INSERT into Authentication (Username, Password, ConfirmPass, ActorID) VALUES ('" + auth.uname + "','" + auth.passw + "','" + auth.cpassw + "','" + auth.actor_id +  "')";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateAuthenticationDB(int authentication_id, string uname, string password, string cpassword, int actor_id, int actorid_id)
+        public void UpdateAuthenticationDB(Authentication auth)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Authentication set Username='" + uname + "',Password='" + password + "',ConfirmPass='" + cpassword + "',ActorID'" + actor_id + "',ActorIdentityID'" + actorid_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Update Authentication set Username='" + auth.uname + "',Password='" + auth.passw + "',ConfirmPass='" + auth.cpassw + "',ActorID'" + auth.actor_id + "' Where AuthenticationID='" + auth.auth_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteAuthenticationDB(int authentication_id)
+        public void DeleteAuthenticationDB(Authentication auth)
         {
             DataSet ds = new DataSet();
-            string sql = "Delete from Authentication Where AuthenticationID='" + authentication_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Delete from Authentication Where AuthenticationID='" + auth.auth_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -41,16 +49,8 @@ namespace DatabaseLayer
         {
             DataSet ds = new DataSet();
             string sql = "Select * from Authentication order by AuthenticationID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
-        }
-
-        //getting the userType
-        public string userTyp(string user, string passw, string cpassw)
-        {
-            SqlCommand objcmd = new SqlCommand("Select Username from Authentication Where Username='" + user + "' Password='" + passw + "' And CPassword='" + cpassw + "')");
-            string s = objcmd.ExecuteScalar().ToString();
-            return s;
         }
     }
 }

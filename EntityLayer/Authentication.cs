@@ -8,5 +8,10 @@ namespace EntityLayer
 {
     public class Authentication
     {
+        public int auth_id { get; set; }
+        public string uname { get; set; }
+        public string passw { get; set; }
+        public string cpassw { get; set; }
+        public int actor_id { get; set; }
     }
 }
