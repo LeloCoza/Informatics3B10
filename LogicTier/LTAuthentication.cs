@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityLayer;      //import EntityLayer
 using DatabaseLayer;    //import DatabaseLayer
 
 namespace LogicTier
@@ -13,19 +13,19 @@ namespace LogicTier
         public DLAuthentication objDataLayer = new DLAuthentication();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddAuthentication(string uname, string password, string cpassword, int actor_id, int actorid__id)
+        public void AddAuthentication(Authentication auth)
         {
-            objDataLayer.AddAuthenticationDB(uname, password, cpassword, actor_id, actorid__id);
+            objDataLayer.AddAuthenticationDB(auth);
         }
 
-        public void UpdateAuthentication(int authentication_id, string uname, string password, string cpassword, int actor_id, int actorid__id)
+        public void UpdateAuthentication(Authentication auth)
         {
-            objDataLayer.UpdateAuthenticationDB(authentication_id, uname, password, cpassword, actor_id, actorid__id);
+            objDataLayer.UpdateAuthenticationDB(auth);
         }
 
-        public void DeleteAuthentication(int authentication_id)
+        public void DeleteAuthentication(Authentication auth)
         {
-            objDataLayer.DeleteAuthenticationDB(authentication_id);
+            objDataLayer.DeleteAuthenticationDB(auth);
         }
 
         public object RetrieveAuthentication()
