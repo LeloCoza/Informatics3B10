@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityLayer;
 using System.Configuration;     //import data references
 using System.Data;
 using System.Data.SqlClient;
@@ -12,52 +12,47 @@ namespace DatabaseLayer
 {
     public class DLActor_Identity
     {
-        //calling the connection string (FishLandDBEntities) into the DataLayer
-        private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();
-
-        public void InsertUpdateDeleteSQLString(string sqlstring)
+        public DB db;
+        public DLActor_Identity()
         {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);      //create connection to the database
-            objsqlconn.Open();      //open connection
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            objcmd.ExecuteNonQuery();
-
-
-        }
-
-        public object ExecuteSqlString(string sqlstring)
-        {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);
-            objsqlconn.Open();
-            DataSet ds = new DataSet();
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            SqlDataAdapter objAdp = new SqlDataAdapter(objcmd);
-            objAdp.Fill(ds);
-            return ds;
+            db = new DB();
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddActorIdDB(string descript)
+        public void AddActorIdDB(Actor_Identity actor_identity)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into ActorIdentity (Description) VALUES ('" + descript + "')";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "INSERT into ActorIdentity (Description) VALUES ('" + actor_identity.description +  "')";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateActorIdDB(int actorid_id, string descript)
+        public void AddActorIdDB(string description)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateActorIdDB(int actorid_id, string description)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateActorIdDB(Actor_Identity actor_identity)
         {
             DataSet ds = new DataSet();
-            string sql = "Update ActorIdentity set Description='" + descript + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Update ActorIdentity set Description='" + actor_identity.description + "' Where ActorIdentityID='" + actor_identity.actorid_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
         public void DeleteActorIdDB(int actorid_id)
         {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteActorIdDB(Actor_Identity actor_identity)
+        {
             DataSet ds = new DataSet();
-            string sql = "Delete from ActorIdentity Where ActorID='" + actorid_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Delete from ActorIdentity Where ActorIdentityID='" + actor_identity.actorid_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -65,9 +60,8 @@ namespace DatabaseLayer
         //and pass them to the BusinessLayer
         public object RetrieveActorIdDB()
         {
-            DataSet ds = new DataSet();
             string sql = "Select * from ActorIdentity order by ActorIdentityID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            DataSet ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }
     }

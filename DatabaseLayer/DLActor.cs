@@ -16,7 +16,7 @@ namespace DatabaseLayer
         public void AddActorDB(Actor actor)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Actor (Name, Surname, DateOfBirth, Cellphone, Email, Address) VALUES ('" + actor.actor_name + "','" + actor.actor_surname + "','" + actor.actor_DOB + "','" + actor.actor_cell + "','" + actor.actor_email + "','" + actor.actor_address + "','" + actor.actorid_id + "')";
+            string sql = "INSERT into Actor (Name, Surname, DateOfBirth, Cellphone, Email, Address) VALUES ('" + actor.actor_name + "','" + actor.actor_surname + "','" + actor.actor_DOB + "','" + actor.actor_cell + "','" + actor.actor_email + "','" + actor.actor_address +  "')";
             db.InsertUpdateDeleteSQLString(sql);
         }
 

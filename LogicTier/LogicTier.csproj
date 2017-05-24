@@ -54,6 +54,10 @@
       <Project>{f7fb8b72-94cf-4e26-b492-8414eb019e8c}</Project>
       <Name>DatabaseLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{5a9fb90b-9ab7-491e-a996-26dd3ba84a2c}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
