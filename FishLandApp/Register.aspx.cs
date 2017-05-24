@@ -18,6 +18,8 @@ namespace FishLandApp
         //create and instantiate objects to use
         Actor actor = new Actor();
         LTActor lt_actor = new LTActor();
+        Authentication auth = new Authentication();
+        LTAuthentication lt_auth = new LTAuthentication();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,11 +32,14 @@ namespace FishLandApp
             actor.Surname = txtSurname.Text;
             actor.DateOfBirth = (DateTime)Convert.ChangeType(txtDOB.Text, typeof(DateTime));
             actor.Cellphone = txtCellphone.Text;
+            auth.Username = txtUsername.Text;
+            auth.Password = txtPassword.Text;
+            auth.ConfirmPass = txtCPassword.Text;
             actor.Email = txtEmail.Text;
             actor.Address = txtAddress.Text;
             actor.ActorIdentityID = 1;
 
-
+            actor.ActorIdentity = lt_actor.AddActor(actor);
 
             //describes the below registra as a customer by default
             //objAI.AddActorId("Customer");x
