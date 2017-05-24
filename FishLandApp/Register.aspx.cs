@@ -12,13 +12,12 @@ namespace FishLandApp
 {
     public partial class Register : System.Web.UI.Page
     {
-        //create objects for the three classes
-        LTActor_Identity objAI;
-        LTActor objA;
-        LTAuthentication objAu;
-
         //every firt time registrar is a customer by default
-        private const int DefaultActorIdentityId = 1;
+        //private const int DefaultActorIdentityId = 1;
+
+        //create and instantiate objects to use
+        Actor actor = new Actor();
+        LTActor lt_actor = new LTActor();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,20 +26,23 @@ namespace FishLandApp
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            //instantiate objects for the three classes 
-            objAI = new LTActor_Identity();
-            objA = new LTActor();
-            objAu = new LTAuthentication();
+            actor.Name = txtName.Text;
+            actor.Surname = txtSurname.Text;
+            actor.DateOfBirth = (DateTime)Convert.ChangeType(txtDOB.Text, typeof(DateTime));
+            actor.Cellphone = txtCellphone.Text;
+            actor.Email = txtEmail.Text;
+            actor.Address = txtAddress.Text;
+            actor.ActorIdentityID = 1;
+
 
 
             //describes the below registra as a customer by default
             //objAI.AddActorId("Customer");x
 
-            object a = objA.GetForeignKey();
-            int i = (int)Convert.ChangeType(a, typeof(int));
-            
+
+
             //creates a user/actor record in table Actor of database FishLandDB
-            objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text, objAI.);
+            //objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text, objAI.);
 
             //stores Authentication values in Authentication table in the database when btnRegister is clicked.
             //objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
