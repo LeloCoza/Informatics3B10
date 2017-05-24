@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using LogicTier;
+using EntityLayer;
 
 namespace FishLandApp
 {
@@ -15,13 +16,13 @@ namespace FishLandApp
         LTActor_Identity objAI;
         LTActor objA;
         LTAuthentication objAu;
+
+        //every firt time registrar is a customer by default
         private const int DefaultActorIdentityId = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            objAI = new LTActor_Identity();
-            objA = new LTActor();
-            objAu = new LTAuthentication();
+
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

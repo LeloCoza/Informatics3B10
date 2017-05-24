@@ -562,6 +562,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{5a9fb90b-9ab7-491e-a996-26dd3ba84a2c}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogicTier\LogicTier.csproj">
       <Project>{35ace53f-5bc4-4671-8f80-dc8f9a342e39}</Project>
       <Name>LogicTier</Name>
