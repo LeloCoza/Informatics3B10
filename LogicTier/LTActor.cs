@@ -33,6 +33,5 @@ namespace LogicTier
         {
             return objDataLayer.RetrieveActorDB();
         }
-
     }
 }

@@ -16,7 +16,7 @@ namespace FishLandApp
         //private const int DefaultActorIdentityId = 1;
 
         //create and instantiate objects to use
-        Actor actor = new Actor();
+        Actor actor;
         LTActor lt_actor = new LTActor();
         Authentication auth = new Authentication();
         LTAuthentication lt_auth = new LTAuthentication();
@@ -39,20 +39,18 @@ namespace FishLandApp
             actor.Address = txtAddress.Text;
             actor.ActorIdentityID = 1;
 
-            actor.ActorIdentity = lt_actor.AddActor(actor);
+            string s = lt_actor.AddActor(actor);
+            string ss = lt_auth.AddAuthentication(auth);
 
             //describes the below registra as a customer by default
             //objAI.AddActorId("Customer");x
-
-
 
             //creates a user/actor record in table Actor of database FishLandDB
             //objA.AddActor(txtName.Text, txtSurname.Text, txtDOB.Text, txtCellphone.Text, txtEmail.Text, txtAddress.Text, objAI.);
 
             //stores Authentication values in Authentication table in the database when btnRegister is clicked.
             //objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
-
-
+            
             lblRegister.Visible = true;     //displays message when user/actor has registered successfully.
             clear();
 
