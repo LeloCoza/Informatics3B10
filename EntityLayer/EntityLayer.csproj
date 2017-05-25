@@ -43,6 +43,7 @@
     <Compile Include="Actor.cs" />
     <Compile Include="Actor_Identity.cs" />
     <Compile Include="Authentication.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="Oder.cs" />
     <Compile Include="OderDetails.cs" />
     <Compile Include="Product.cs" />
