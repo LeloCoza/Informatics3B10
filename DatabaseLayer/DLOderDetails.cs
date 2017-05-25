@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityLayer;
 using System.Configuration;     //import data references
 using System.Data;
 using System.Data.SqlClient;
@@ -12,52 +12,32 @@ namespace DatabaseLayer
 {
     public class DLOderDetails
     {
-        //calling the connection string (FishLandDBEntities) into the DataLayer
-        private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();
-
-        public void InsertUpdateDeleteSQLString(string sqlstring)
+        public DB db;
+        public DLOderDetails()
         {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);      //create connection to the database
-            objsqlconn.Open();      //open connection
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            objcmd.ExecuteNonQuery();
-
-
-        }
-
-        public object ExecuteSqlString(string sqlstring)
-        {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);
-            objsqlconn.Open();
-            DataSet ds = new DataSet();
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            SqlDataAdapter objAdp = new SqlDataAdapter(objcmd);
-            objAdp.Fill(ds);
-            return ds;
+            db = new DB();
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddOderDetailsDB(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
+        public void AddOderDetailsDB(OderDetails OD)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into OderDetails (Size, NumOfItems, OderID, ProductID) VALUES ('" + size + "','" + num_of_items + "','" + orderid + "','" + prodid + "')";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "INSERT into OderDetails (Size, NumOfItems, OderID, ProductID) VALUES ('" + OD.size + "','" + OD.num_of_items + "','" + OD.oder_id + "','" + OD.prod_id + "')";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateOderDetailsDB(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
+        public void UpdateOderDetailsDB(OderDetails OD)
         {
             DataSet ds = new DataSet();
-            string sql = "Update OderDetails set Size='" + size + "',NumOfItems='" + num_of_items + "',OderID='" + orderid + "',ProductID='" + prodid + "' Where OderDetailsID='" + oderDet_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Update OderDetails set Size='" + OD.size + "',NumOfItems='" + OD.num_of_items + "',OderID='" + OD.oder_id + "',ProductID='" + OD.prod_id + "' Where OderDetailsID='" + OD.oder_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteOderDetailsDB(int oderDet_id)
+        public void DeleteOderDetailsDB(OderDetails OD)
         {
             DataSet ds = new DataSet();
-            string sql = "Delete from OderDetails Where OderDetailsID='" + oderDet_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Delete from OderDetails Where OderDetailsID='" + OD.oder_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -67,7 +47,7 @@ namespace DatabaseLayer
         {
             DataSet ds = new DataSet();
             string sql = "Select * from OderDetails order by OderDetailsID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }
     }

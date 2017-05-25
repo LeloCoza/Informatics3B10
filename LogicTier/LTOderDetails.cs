@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLayer;    //import DatabaseLayer namespace
+using EntityLayer;
 
 namespace LogicTier
 {
@@ -12,19 +13,19 @@ namespace LogicTier
         public DLOderDetails objDataLayer = new DLOderDetails();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddOderDetails(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
+        public void AddOderDetails(OderDetails OD)
         {
-            objDataLayer.AddOderDetailsDB(oderDet_id, size, num_of_items, orderid, prodid);
+            objDataLayer.AddOderDetailsDB(OD);
         }
 
-        public void UpdateOderDetails(int oderDet_id, int size, int num_of_items, int orderid, int prodid)
+        public void UpdateOderDetails(OderDetails OD)
         {
-            objDataLayer.UpdateOderDetailsDB(oderDet_id, size, num_of_items, orderid, prodid);
+            objDataLayer.UpdateOderDetailsDB(OD);
         }
 
-        public void DeleteOderDetails(int oderDet_id)
+        public void DeleteOderDetails(OderDetails OD)
         {
-            objDataLayer.DeleteOderDetailsDB(oderDet_id);
+            objDataLayer.DeleteOderDetailsDB(OD);
         }
 
         public object RetrieveOderDetails()
