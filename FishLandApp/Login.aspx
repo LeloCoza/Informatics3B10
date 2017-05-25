@@ -13,6 +13,6 @@
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="btnLogin" runat="server" Text="Login" />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
     </div>
 </asp:Content>

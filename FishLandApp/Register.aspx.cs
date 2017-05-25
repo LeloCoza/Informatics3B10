@@ -20,6 +20,7 @@ namespace FishLandApp
         LTActor lt_actor = new LTActor();
         Authentication auth = new Authentication();
         LTAuthentication lt_auth = new LTAuthentication();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -29,7 +30,7 @@ namespace FishLandApp
         {
             actor.Name = txtName.Text;
             actor.Surname = txtSurname.Text;
-            actor.DateOfBirth = (DateTime)Convert.ChangeType(txtDOB.Text, typeof(DateTime));
+            //actor.DateOfBirth = (DateTime)Convert.ChangeType(txtDOB.Text, typeof(DateTime));
             actor.Cellphone = txtCellphone.Text;
             auth.Username = txtUsername.Text;
             auth.Password = txtPassword.Text;
@@ -38,8 +39,8 @@ namespace FishLandApp
             actor.Address = txtAddress.Text;
             actor.ActorIdentityID = 1;
 
-            string s = lt_actor.AddActor(actor);
-            string ss = lt_auth.AddAuthentication(auth);
+            lt_actor.AddActor(actor);
+            lt_auth.AddAuthentication(auth);
 
             //describes the below registra as a customer by default
             //objAI.AddActorId("Customer");x
@@ -49,7 +50,7 @@ namespace FishLandApp
 
             //stores Authentication values in Authentication table in the database when btnRegister is clicked.
             //objAu.AddAuthentication(txtUsername.Text, txtPassword.Text, txtCPassword.Text);
-            
+
             lblRegister.Visible = true;     //displays message when user/actor has registered successfully.
             clear();
 
@@ -58,8 +59,7 @@ namespace FishLandApp
 
             // Response.Write("You have been registered!");
                         
-            //Response.Redirect("Register.aspx");
-            
+            //Response.Redirect("Register.aspx");  
         }
         
         //clears all textboxes after data is submitted.
