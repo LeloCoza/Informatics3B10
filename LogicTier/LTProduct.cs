@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLayer;    //import DatabaseLayer namespace
+using EntityLayer;
 
 namespace LogicTier
 {
@@ -12,19 +13,19 @@ namespace LogicTier
         public DLProduct objDataLayer = new DLProduct();  //create a DatabaseLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddProduct(string prod_name, string prod_descript, string prod_price, string prod_pic, int catid)
+        public void AddProduct(Product product)
         {
-            objDataLayer.AddProductDB(prod_name, prod_descript, prod_price, prod_pic, catid);
+            objDataLayer.AddProductDB(product);
         }
 
-        public void UpdateProduct(int prod_id, string prod_name, string prod_descript, string prod_price, string prod_pic, int catid)
+        public void UpdateProduct(Product product)
         {
-            objDataLayer.UpdateProductDB(prod_id, prod_name, prod_descript, prod_price, prod_pic, catid);
+            objDataLayer.UpdateProductDB(product);
         }
 
-        public void DeleteProduct(int prod_id)
+        public void DeleteProduct(Product product)
         {
-            objDataLayer.DeleteProductDB(prod_id);
+            objDataLayer.DeleteProductDB(product);
         }
 
         public object RetrieveProduct()

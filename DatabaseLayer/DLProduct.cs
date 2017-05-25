@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityLayer;
 using System.Configuration;     //import data references
 using System.Data;
 using System.Data.SqlClient;
@@ -12,52 +12,32 @@ namespace DatabaseLayer
 {
     public class DLProduct
     {
-        //calling the connection string (FishLandDBEntities) into the DataLayer
-        private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();
-
-        public void InsertUpdateDeleteSQLString(string sqlstring)
+        public DB db;
+        public DLProduct()
         {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);      //create connection to the database
-            objsqlconn.Open();      //open connection
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            objcmd.ExecuteNonQuery();
-
-
-        }
-
-        public object ExecuteSqlString(string sqlstring)
-        {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);
-            objsqlconn.Open();
-            DataSet ds = new DataSet();
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            SqlDataAdapter objAdp = new SqlDataAdapter(objcmd);
-            objAdp.Fill(ds);
-            return ds;
+            db = new DB();
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddProductDB(string prod_name, string prod_descript, string prod_price, string prod_pic, int catid)
+        public void AddProductDB(Product product)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Product (ProductName, ProductDescript, ProductPrice, ProductPicture, CategoryID) VALUES ('" + prod_name + "','" + prod_descript + "','" + prod_price + "','" + prod_price + "','" + catid + "')";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "INSERT into Product (ProductName, ProductDescript, ProductPrice, ProductPicture, CategoryID) VALUES ('" + product.prod_name + "','" + product.prod_descript + "','" + product.prod_price + "','" + product.prod_price + "','" + product.cat_id + "')";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateProductDB(int prod_id, string prod_name, string prod_descript, string prod_price, string prod_pic, int catid)
+        public void UpdateProductDB(Product product)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Product set ProductName='" + prod_name + "',ProductDescript='" + prod_descript + "',ProductPrice='" + prod_price + "'ProductPicture='" + prod_pic + "'CategoryID='" + catid + "' Where ProductID='" + prod_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Update Product set ProductName='" + product.prod_name + "',ProductDescript='" + product.prod_descript + "',ProductPrice='" + product.prod_price + "'ProductPicture='" + product.prod_pic + "'CategoryID='" + product.cat_id + "' Where ProductID='" + product.prod_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteProductDB(int product_id)
+        public void DeleteProductDB(Product product)
         {
             DataSet ds = new DataSet();
-            string sql = "Delete from Productr Where ProductID='" + product_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Delete from Productr Where ProductID='" + product.prod_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -67,7 +47,7 @@ namespace DatabaseLayer
         {
             DataSet ds = new DataSet();
             string sql = "Select * from Product order by ProductID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }
     }
