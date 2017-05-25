@@ -20,7 +20,6 @@ namespace FishLandApp
         LTActor lt_actor = new LTActor();
         Authentication auth = new Authentication();
         LTAuthentication lt_auth = new LTAuthentication();
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
