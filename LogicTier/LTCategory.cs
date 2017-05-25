@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLayer;    //import DatabaseLayer namespace
+using EntityLayer;
 
 namespace LogicTier
 {
@@ -12,19 +13,19 @@ namespace LogicTier
         public DLCategory objDataLayer = new DLCategory();  //create a DataLayer object
 
         //create, select, update, delete functions to update from presentation layer to database layer
-        public void AddCategory(string category_name)
+        public void AddCategory(Category category)
         {
-            objDataLayer.AddCategoryDB(category_name);
+            objDataLayer.AddCategoryDB(category);
         }
 
-        public void UpdateCategory(int category_id, string category_name)
+        public void UpdateCategory(Category category)
         {
-            objDataLayer.UpdateCategoryDB(category_id, category_name);
+            objDataLayer.UpdateCategoryDB(category);
         }
 
-        public void DeleteCategory(int category_id)
+        public void DeleteCategory(Category category)
         {
-            objDataLayer.DeleteCategoryDB(category_id);
+            objDataLayer.DeleteCategoryDB(category);
         }
 
         public object RetrieveCategory()

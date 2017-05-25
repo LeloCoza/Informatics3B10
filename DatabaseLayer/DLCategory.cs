@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityLayer;      //import EntityLayer
 using System.Configuration;     //import data references
 using System.Data;
 using System.Data.SqlClient;
@@ -12,52 +12,34 @@ namespace DatabaseLayer
 {
     public class DLCategory
     {
-        //calling the connection string (FishLandDBEntities) into the DataLayer
-        private string conn = ConfigurationManager.ConnectionStrings["FishLandDBEntities"].ToString();
-
-        public void InsertUpdateDeleteSQLString(string sqlstring)
+        /*declare a DB class variable
+        and instantite it in the DLOder constructor*/
+        public DB db;
+        public DLCategory()
         {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);      //create connection to the database
-            objsqlconn.Open();      //open connection
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            objcmd.ExecuteNonQuery();
-
-
-        }
-
-        public object ExecuteSqlString(string sqlstring)
-        {
-
-            SqlConnection objsqlconn = new SqlConnection(conn);
-            objsqlconn.Open();
-            DataSet ds = new DataSet();
-            SqlCommand objcmd = new SqlCommand(sqlstring, objsqlconn);
-            SqlDataAdapter objAdp = new SqlDataAdapter(objcmd);
-            objAdp.Fill(ds);
-            return ds;
+            db = new DB();
         }
 
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddCategoryDB(string category_name)
+        public void AddCategoryDB(Category category)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Category (CategoryName) VALUES ('" + category_name + "')";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "INSERT into Category (CategoryName) VALUES ('" + category.cat_name + "')";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateCategoryDB(int category_id, string category_name)
+        public void UpdateCategoryDB(Category category)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Category set CategoryName='" + category_name + "' Where ActorID='" + category_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Update Category set CategoryName='" + category.cat_name + "' Where CategoryID='" + category.cat_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteCategoryDB(int category_id)
+        public void DeleteCategoryDB(Category category)
         {
             DataSet ds = new DataSet();
-            string sql = "Delete from Category Where CategoryID='" + category_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Delete from Category Where CategoryID='" + category.cat_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -67,7 +49,7 @@ namespace DatabaseLayer
         {
             DataSet ds = new DataSet();
             string sql = "Select * from Category order by CategoryID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }
     }
