@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EntityLayer;
 using System.Configuration;     //import data references
 using System.Data;
 using System.Data.SqlClient;
@@ -12,26 +12,34 @@ namespace DatabaseLayer
 {
     public class DLOder
     {
+        /*declare a DB class variable
+        and instantite it in the DLOder constructor*/
+        public DB db;
+        public DLOder()
+        {
+            db = new DB();
+        }
+
         //methods to execute Insert/Update/Delete commands using SQLCOMMAND
-        public void AddOderDB(string status, string t_amount, string date)
+        public void AddOderDB(Oder oder)
         {
             DataSet ds = new DataSet();
-            string sql = "INSERT into Oder (Status, TotalAmount, Date) VALUES ('" + status + "','" + t_amount + "','" + date + "')";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "INSERT into Oder (Status, TotalAmount, Date, AuthenticationID) VALUES ('" + oder.status + "','" + oder.tamount + "','" + oder.date + oder.auth_id + "')";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void UpdateOderDB(int oder_id, string status, string t_amount, string date)
+        public void UpdateOderDB(Oder oder)
         {
             DataSet ds = new DataSet();
-            string sql = "Update Oder set Status='" + status + "',TotalAmount='" + t_amount + "',Date='" + date + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Update Oder set Status='" + oder.status + "',TotalAmount='" + oder.tamount + "',Date='" + oder.date + "' Where OderID='" + oder.oder_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
-        public void DeleteOderDB(int oder_id)
+        public void DeleteOderDB(Oder oder)
         {
             DataSet ds = new DataSet();
-            string sql = "Delete from Oder Where OderID='" + oder_id + "' ";
-            InsertUpdateDeleteSQLString(sql);
+            string sql = "Delete from Oder Where OderID='" + oder.oder_id + "' ";
+            db.InsertUpdateDeleteSQLString(sql);
         }
 
 
@@ -41,7 +49,7 @@ namespace DatabaseLayer
         {
             DataSet ds = new DataSet();
             string sql = "Select * from Oder order by OderID";
-            ds = (DataSet)ExecuteSqlString(sql);
+            ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }
     }
