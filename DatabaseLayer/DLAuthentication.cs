@@ -45,10 +45,10 @@ namespace DatabaseLayer
 
         //this method uses SQLCOMMAND and DATASET to load records
         //and pass them to the BusinessLayer
-        public object RetrieveAuthenticationDB()
+        public object RetrieveAuthenticationDB(Authentication auth)
         {
             DataSet ds = new DataSet();
-            string sql = "Select * from Authentication order by AuthenticationID";
+            string sql = "Select * from Authentication Where Username='" + auth.uname + "'an Password='" + auth.passw + "'";
             ds = (DataSet)db.ExecuteSqlString(sql);
             return ds;
         }

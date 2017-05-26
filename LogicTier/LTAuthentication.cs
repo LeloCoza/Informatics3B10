@@ -28,9 +28,9 @@ namespace LogicTier
             objDataLayer.DeleteAuthenticationDB(auth);
         }
 
-        public object RetrieveAuthentication()
+        public object RetrieveAuthentication(Authentication auth)
         {
-            return objDataLayer.RetrieveAuthenticationDB();
+            return objDataLayer.RetrieveAuthenticationDB(auth);
         }
     }
 }

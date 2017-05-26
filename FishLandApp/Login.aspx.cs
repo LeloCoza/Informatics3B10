@@ -30,16 +30,21 @@ namespace FishLandApp
         {
             string uname = txtUsername.Text;
             string passw = txtPassword.Text;
-            //actor.ActorIdentityID = 1;
-            int actoridentityId = 1;
-            //lt_auth.AddAuthentication(auth);
-
-            lt_auth.RetrieveAuthentication();
-
-            if(uname = auth.Username)
-
             
+            //by default, everyone that uses the system is a customer
+            actor.ActorIdentityID = 1;
+            int i = actor.ActorIdentityID;      //declare a local variable to use in the if-statements
 
+            lt_auth.RetrieveAuthentication(auth);
+           
+            if (uname == auth.Username && passw == auth.Password)
+            {
+                Response.Redirect("Customer.aspx");
+            }
+            else if(i == 2 && (uname == auth.Username && passw == auth.Password))
+            {
+                Response.Redirect("Admin.aspx");
+            }
         }
     }
 }
