@@ -206,6 +206,7 @@
     <Content Include="Content\jquery.lightbox-0.5.css" />
     <Content Include="Content\master.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Customer.aspx" />
     <Content Include="FishLandModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FishLandModel.edmx</DependentUpon>
@@ -463,6 +464,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.aspx.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer.aspx.designer.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
